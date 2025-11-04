@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 from config import Config
 from models import db
 from auth import auth_bp
+from ai_routes import ai_bp
 
 def create_app():
     app = Flask(__name__)
@@ -12,6 +13,7 @@ def create_app():
     CORS(app, resources={r"/api/*": {"origins": "*"}})
     jwt = JWTManager(app)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(ai_bp)
     
     @app.route("/api/health", methods=["GET"])
     def health_check():
