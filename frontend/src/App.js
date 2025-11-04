@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ChatAgent from "./components/Shared/ChatAgent";
 import { useAccessibility } from "./contexts/AccessibilityContext";
@@ -12,14 +12,12 @@ function App() {
     darkMode,
     setContrast,
     setDarkMode,
-    setTextToSpeech,
-    speak
+    setTextToSpeech
   } = useAccessibility();
   const [currentPage, setCurrentPage] = useState("home");
   const [enrolledCourse, setEnrolledCourse] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
   const [keyboardLesson, setKeyboardLesson] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [buttonClicked, setButtonClicked] = useState("");
 
   const handleSpeak = (text) => {
@@ -147,13 +145,12 @@ function App() {
     utterance.rate = 0.9;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
-    setIsPlaying(true);
+  // mark playing audio by setting playingAudio
   };
 
   const stopAudio = () => {
     window.speechSynthesis.cancel();
-    setIsPlaying(false);
-    setPlayingAudio(null);
+  setPlayingAudio(null);
   };
 
   const handleButtonClick = (buttonName) => {
