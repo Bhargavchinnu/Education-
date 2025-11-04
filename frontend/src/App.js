@@ -1,14 +1,20 @@
-﻿import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState } from "react";
 import "./App.css";
 import ChatAgent from "./components/Shared/ChatAgent";
-import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
+import { useAccessibility } from "./contexts/AccessibilityContext";
+import FontAdjuster from "./components/Accessibility/FontAdjuster";
 
 function App() {
-  const [fontSize, setFontSize] = useState("medium");
-  const [contrast, setContrast] = useState("normal");
-  const [textToSpeech, setTextToSpeech] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const { 
+    fontSize, 
+    contrast, 
+    textToSpeech, 
+    darkMode,
+    setContrast,
+    setDarkMode,
+    setTextToSpeech,
+    speak
+  } = useAccessibility();
   const [currentPage, setCurrentPage] = useState("home");
   const [enrolledCourse, setEnrolledCourse] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
@@ -160,15 +166,7 @@ function App() {
     <div className={`App ${contrast} ${darkMode ? "dark-mode" : ""}`}>
       <div className="accessibility-toolbar">
         <h3>Accessibility Options</h3>
-        <div className="toolbar-group">
-          <label>Font Size:</label>
-          <select value={fontSize} onChange={(e) => setFontSize(e.target.value)}>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extra-large">Extra Large</option>
-          </select>
-        </div>
+        <FontAdjuster />
         <div className="toolbar-group">
           <label>Contrast:</label>
           <select value={contrast} onChange={(e) => setContrast(e.target.value)}>
