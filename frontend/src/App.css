@@ -1,0 +1,368 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: 3px solid #FFD700 !important;
+  outline-offset: 2px !important;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.accessibility-toolbar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  max-width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.accessibility-toolbar h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.toolbar-group {
+  margin: 10px 0;
+}
+
+.toolbar-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.toolbar-group select,
+.toolbar-group input {
+  padding: 8px;
+  border: 2px solid #667eea;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  width: 100%;
+}
+
+.content.small { font-size: 0.9em; }
+.content.medium { font-size: 1em; }
+.content.large { font-size: 1.3em; }
+.content.extra-large { font-size: 1.6em; }
+
+.content {
+  animation: fadeIn 0.8s ease-in;
+}
+
+h1 {
+  font-size: 4em;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.8em;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  padding: 15px 50px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #667eea;
+  background: white;
+  border: 3px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #FFD700;
+}
+
+.dashboard-view {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  max-width: 1200px;
+}
+
+.dashboard-view h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.dashboard-subtitle {
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.dashboard-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.dashboard-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.dashboard-btn:hover,
+.dashboard-btn:focus {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.dashboard-btn h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.dashboard-btn p {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.page-view {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  max-width: 1000px;
+}
+
+.page-view h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.mini-courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.mini-course {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #FFD700;
+}
+
+.mini-course h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.mini-course p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  opacity: 0.85;
+}
+
+.mini-btn {
+  background: #FFD700;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95em;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.mini-btn:hover,
+.mini-btn:focus {
+  background: #FFA500;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: white;
+  color: #667eea;
+}
+
+.enrolled-view {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  max-width: 1000px;
+}
+
+.visual-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.box {
+  background: rgba(255, 215, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #FFD700;
+  margin: 10px 0;
+}
+
+.audio-view {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  max-width: 900px;
+}
+
+.audio-player {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.player-controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.control-btn {
+  border: none;
+  padding: 15px 35px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.play-main {
+  background: #FFD700;
+  color: #333;
+}
+
+.stop-btn {
+  background: white;
+  color: #667eea;
+}
+
+.keyboard-lesson-view {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  max-width: 1000px;
+}
+
+.lesson-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.practice-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.practice-btn {
+  background: #FFD700;
+  color: #333;
+  border: 3px solid #FFD700;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.practice-btn:hover,
+.practice-btn:focus {
+  background: #FFA500;
+}
+
+.feedback {
+  background: rgba(144, 238, 144, 0.3);
+  border: 2px solid #90EE90;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #90EE90;
+}
+
+.App.high {
+  background: linear-gradient(135deg, #000080 0%, #00008B 100%);
+}
+
+.App.inverted {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.App.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .dashboard-buttons { grid-template-columns: 1fr; }
+  .dashboard-view { padding: 20px; }
+}
